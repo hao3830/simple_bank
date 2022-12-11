@@ -11,4 +11,4 @@ test:
 	go test -v -cover ./...
 
 
-.PHONY: sqlc migrateup
+.PHONY: sqlc migrateup test

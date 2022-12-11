@@ -7,6 +7,8 @@ migrateup:
 migratedown: 
 	docker run -v "%cd%/db/migration:/migrations" --network host migrate/migrate -path=/migrations/ -database postgresql://root:1@localhost:5432/simple_bank?sslmode=disable down 2 
 
+test:
+	go test -v -cover ./...
 
 
 .PHONY: sqlc migrateup

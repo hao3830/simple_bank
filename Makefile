@@ -13,5 +13,11 @@ migrateup_github:
 test:
 	go test -v -cover ./...
 
+server:
+	go run main.go
 
-.PHONY: sqlc migrateup test migrateup_github
+mock:
+	mockgen -package mockdb -destination db/mock/store.go github.com/hao3830/simple_bank/db/sqlc Store
+
+
+.PHONY: sqlc migrateup test migrateup_github server mock
